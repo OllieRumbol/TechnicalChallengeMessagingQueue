@@ -1,24 +1,21 @@
-﻿using System;
-using RabbitMQ.Client;
-using System.Text;
+﻿using RabbitMQ.Client;
+using TechnicalChallengeMessagingQueuePublisherService.models;
+using TechnicalChallengeMessagingQueuePublisherService.csv;
+using TechnicalChallengeMessagingQueuePublisherService.queue;
+using Newtonsoft.Json.Linq;
 
-var factory = new ConnectionFactory() { HostName = "localhost" };
-using (var connection = factory.CreateConnection())
-using (var channel = connection.CreateModel())
+string csvDataFileLocation = @"C:\Users\otgbo\Desktop\TestData.csv";
+CsvProcessor processor = new CsvProcessor(csvDataFileLocation);
+List<Product> products = processor.ConvertCsv<Product>();
+Console.WriteLine($"Processed CSV file and found {products.Count} products");
+
+QueueProcessor queueProcessor = new QueueProcessor("localhost", "products");
+
+foreach(Product product in products)
 {
-    channel.QueueDeclare(queue: "hello",
-                      durable: false,
-                      exclusive: false,
-                      autoDelete: false,
-                      arguments: null);
+    string message = JObject.FromObject(product).ToString();
+    queueProcessor.SendMessageToQueue(message);
 
-    string message = "Hello World!";
-    Byte[] body = Encoding.UTF8.GetBytes(message);
-
-    channel.BasicPublish(exchange: "",
-                     routingKey: "hello",
-                     basicProperties: null,
-                     body: body);
-
-    Console.WriteLine(" [x] Sent {0}", message);
+    Console.WriteLine($"Sent the following message to queue: {message}");
+    Console.WriteLine();
 }
