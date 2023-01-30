@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using RabbitMQ.Client;
 
 namespace TechnicalChallengeMessagingQueuePublisherService.queue;
 
-public class QueueProcessor
+public class QueueProcessor : IQueueProcessor
 {
     private string HostName;
     private string QueueName;
