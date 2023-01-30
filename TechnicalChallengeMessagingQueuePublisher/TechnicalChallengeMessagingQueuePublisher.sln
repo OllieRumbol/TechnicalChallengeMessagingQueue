@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalChallengeMessagingQueuePublisher", "TechnicalChallengeMessagingQueuePublisher.csproj", "{55431CD8-A4AC-4477-901F-61AA2A3E4401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnicalChallengeMessagingQueuePublisher", "TechnicalChallengeMessagingQueuePublisher.csproj", "{55431CD8-A4AC-4477-901F-61AA2A3E4401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalChallengeMessagingQueuePublisherService", "..\TechnicalChallengeMessagingQueuePublisherService\TechnicalChallengeMessagingQueuePublisherService.csproj", "{25E44A05-6B6D-47BF-B039-E70D4FC38594}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnicalChallengeMessagingQueuePublisherService", "..\TechnicalChallengeMessagingQueuePublisherService\TechnicalChallengeMessagingQueuePublisherService.csproj", "{25E44A05-6B6D-47BF-B039-E70D4FC38594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
